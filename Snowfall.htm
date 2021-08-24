@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Snowfall</title>
+        <style>
+            body { margin: 0 }
+            #snowfall {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                position: relative;
+            }
+            #snowfall > div { position:absolute }
+        </style>
+    </head>
+    <body>
+        <div id="snowfall"></div>
+
+        <script>
+            let snowfall = document.getElementById("snowfall");
+            let height = snowfall.offsetHeight;
+            let width = snowfall.offsetWidth;
+            let color = ["Lavender","Violet","Orchid","Fuchsia","Magenta","MediumOrchid","DarkViolet","Purple","Indigo","SlateBlue"]
+            let flakes = ["&#10052;","&#10053;","&#10054;","&#8277;","&#9913;"]
+            let s = 0;
+            let snow = [];
+            
+            setInterval(create, 1000);
+            setInterval(sfall, 40);
+
+            function sfall(){
+                for(let i = 0; i < snow.length; i++) {
+                    let flake = snow[i];
+                    if(flake.y < height) {
+                        flake.y += 3;
+                        flake.x += 2 * Math.sin(flake.y / 50);
+                        let elem = document.getElementById("snow" + i);
+                        elem.style.left = flake.x + "px";
+                        elem.style.top = flake.y + "px";
+                        elem.style.color = flake.color;
+                        elem.style.fontSize = flake.size + "em";
+                    }  
+                }
+            }
+            function create(){
+                let flake = {
+                    x: rand(0, width),
+                    y: 0,
+                    size: rand(9, 30)/10,
+                    color: color[rand(0, color.length-1)],
+                    symb: flakes[rand(0, flakes.length-1)]
+                };
+                snowfall.innerHTML += '<div id="snow' + s + '">' + flake.symb + '</div>';
+                snow[s] = flake;
+                s++;
+            }
+            function rand(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+		<style>
+			*{box-sizing:border-box;}
+			body{margin:0;}
+			#banner{
+				position:relative;
+				width:300px;
+				height:600px;
+				border:1px solid silver;
+				 overflow: hidden;
+			}
+			#banner > div {position: absolute;}
+			#nebo{
+				width:100%;
+				height:50%;
+				background: linear-gradient(180deg, rgb(10,7,70) 0%, rgb(9,9,121) 12%, rgb(34,51,135) 30%, rgb(53,82,146) 46%, rgb(66,104,154) 62%);
+				animation: nebo 2s forwards;}	
+			#cottage {
+				top:240px;
+				left:90px;
+			}
+			#moon {
+				top:10px;
+				left:10px;
+				animation: moon 10s linear infinite;
+			}
+			#snow {
+				background:url('img/snow2.png');
+				background-repeat:repeat;
+				width:100%;
+				height:590px;
+				top:0; left:0;
+				animation:snow 10s infinite linear;
+			}
+			#snow2  {
+				background:url('img/snow2.png');
+				background-repeat:repeat;
+				width:100%;
+				height:590px;
+				top:0; left:0;
+				animation:snow2 10s infinite linear;
+			}
+			#smoke {
+				top:70px;
+				left:180px;
+				animation: smoke 2s linear  infinite;
+			}
+			#tree {
+				top:320px;
+				left:190px;
+			}
+			#tree2 {
+				top:300px;
+			}
+			 #text1 {
+                font:  .9em Pacifico;
+                color: #024f59;
+                width: 100%;
+                text-align: center;
+                animation: text1 1s ease-in 3s forwards;
+                transform: scale(0, 0);
+				top: 60%;
+            }
+            #text2 {
+                font: italic bold .9em Arial;
+                color: #7babaf;
+                width: 100%;
+                top: 100%;
+                text-align: center;
+                animation: text2 1s 5s forwards;
+            }
+			@keyframes nebo{
+				from{opacity:0}
+				to{opacity:1}
+			}
+			 @keyframes smoke {
+				0% { top: 70px ; opacity: 1; }
+                50% { top: 50px; opacity: .8;  }
+                100% { top: 30px; opacity: .2; }
+            }
+			@keyframes snow {
+				0% {background-position: 0px 0px; }
+                100% { background-position: 100px 590px; }
+            }
+			@keyframes snow2 {
+				0% {background-position: 0px -100px; }
+                100% { background-position: 0px 590px; }
+            }
+			 @keyframes moon {
+                from { transform: rotate(180deg) translate(0, 0); }
+                to { transform: rotate(-180deg) translate(0, 0); }
+            }
+			 @keyframes text1 {
+                from { transform: scale(.01, .01) ; right: 100% }
+                to { transform: scale(1, 1) ; right: 5% }
+            }
+            @keyframes text2 {
+                from { top: 100% }
+                to { top: 96% }
+            }
+            }
+		</style>
+	</head>
+	<body>
+		<div id="banner">
+			<div id="nebo"></div>
+			<div id="cottage"><img src="img/cottage1.png" /></div>
+			<div id="moon"><img src="img/moon.png" /></div>
+			<div id="snow"></div>
+			<div id="snow2"></div>
+			<div id="smoke"><img src="img/smoke1.png" /></div>
+			<div id="tree"><img src="img/tree1.png" /></div>
+			<div id="tree2"><img src="img/tree2.png" /></div>
+			<div id="text1">Чудная картина,
+							<br/>Как ты мне родна:
+							<br/>Белая равнина,
+							<br/>Полная луна,
+							<br/>Свет небес высоких,
+							<br/>И блестящий снег,
+							<br/>И саней далеких
+							<br/>Одинокий бег.
+							</div>
+            <div id="text2">© Афанасий Фет — Чудная картина</div>
+		</div>
+	</body>
+</html>

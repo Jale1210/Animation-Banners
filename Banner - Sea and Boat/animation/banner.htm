@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+        <style>
+            * { box-sizing: border-box; }
+            body {margin: 0}
+            #banner {
+                position: relative;
+                width: 300px;
+                height: 600px;
+                border: 1px solid silver;
+                overflow: hidden;
+            }
+            #banner > div { position: absolute; }
+            #nebo { 
+                width: 100%;
+                height: 50%;
+                background: linear-gradient(#c1d7ff, #fff);
+                animation: nebo 2s forwards;
+            }
+            #more {
+                width: 100%;
+                background: linear-gradient(#578aeb, #2106b8);
+                bottom: 0;
+                animation: more 2s 1s forwards;
+            }
+            #yaxta > img { 
+                width: 80px;
+                animation: boat 2s ease-in-out infinite alternate;
+            }
+            #yaxta {
+                left: -80px;
+                top: calc(50% - 40px);
+                /* transform: translate(0, -40px); */
+                animation: yaxta 10s linear 3s infinite alternate;
+            }
+            #oblako1 { 
+                width:55px; 
+                height:40px; 
+                background: url('../img/cloud.png') top left/150px;
+                top: 10px;
+                left: 100%;
+                animation: oblako 10s linear 2s infinite;
+            }
+            #oblako2 { 
+                width:80px; 
+                height:45px; 
+                background: url('../img/cloud.png') top right/150px;
+                top: 90px;
+                left: 100%;
+                animation: oblako 13s linear 5s infinite;
+            }
+            #oblako3 { 
+                width:130px; 
+                height:50px; 
+                background: url('../img/cloud.png') bottom left/150px;
+                top: 180px;
+                left: 100%;
+                animation: oblako 18s linear 8s infinite;
+            }
+            #text1 {
+                font: bold 3em Pacifico;
+                color: #fff;
+                width: 100%;
+                text-align: center;
+                animation: text1 1s ease-in 8s forwards;
+                transform: scale(0, 0);
+            }
+            #text2 {
+                font: bold 2em Arial;
+                color: #fff;
+                width: 100%;
+                top: 100%;
+                text-align: center;
+                animation: text2 1s 9s forwards;
+            }
+
+            @keyframes nebo {
+                from { opacity: 0 }
+                to { opacity: 1 }
+            }
+            @keyframes more {
+                from { height: 0 }
+                to { height: 50% }
+            }
+            @keyframes yaxta {
+                from { left: -80px }
+                to { left: 100% }
+            }
+            @keyframes boat {
+                from { transform: rotate(3deg) translate(0, 5px); }
+                to { transform: rotate(-3deg) translate(0, -5px); }
+            }
+            @keyframes oblako {
+                0% { left: 100%; opacity: .8; }
+                50% { left: calc(50% - 65px); opacity: .2;  }
+                100% { left: -130px; opacity: 1; }
+            }
+            @keyframes text1 {
+                from { transform: scale(.01, .01) rotate(-720deg); top: 50% }
+                to { transform: scale(1, 1) rotate(720deg); top: 60% }
+            }
+            @keyframes text2 {
+                from { top: 100% }
+                to { top: 80% }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="banner">
+            <div id="nebo"></div>
+            <div id="more"></div>
+            <div id="yaxta"><img src="../img/yaxta.png" /></div>
+            <div id="oblako1"></div>
+            <div id="oblako2"></div>
+            <div id="oblako3"></div>
+            <div id="text1">Солнышко</div>
+            <div id="text2">С Новым годом!</div>
+        </div>
+    </body>
+</html>
